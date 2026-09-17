@@ -1,0 +1,1558 @@
+@charset "UTF-8";
+
+:root {
+  --blue: #43b7e8;
+  --blue-dark: #0076d9;
+  --navy: #0047c7;
+  --green: #16b90b;
+  --orange: #ff4b0b;
+  --red: #ff321e;
+  --text: #202020;
+  --line: #67bbc6;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--text);
+  background: #e8e8e8;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 14px;
+  line-height: 1.8;
+}
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-decoration: none; }
+h1, h2, h3, h4, h5, p { margin: 0; }
+
+header, main, #footer {
+  width: 100%;
+  max-width: 750px;
+  margin-inline: auto;
+  background: #fff;
+}
+header { height: 0; }
+section { position: relative; }
+
+/* ==============================
+   メインビジュアル
+============================== */
+
+.first {
+  position: relative;
+  width: 100%;
+  max-width: 750px;
+  height: min(152vw, 980px);
+  min-height: 600px;
+  max-height: 980px;
+  margin: 0 auto;
+  overflow: hidden;
+  background-color: #55bdf0;
+}
+
+/* 青い斜め背景 */
+.first::before {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  content: "";
+  background-color: #55bdf0;
+  clip-path: polygon(
+    0 39%,
+    100% 56%,
+    100% 100%,
+    0 100%
+  );
+}
+
+/* 犬のメイン画像 */
+.first_main {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 75%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+/* ロゴ */
+.first_logo {
+  position: absolute;
+  top: 3%;
+  left: 3%;
+  z-index: 5;
+  width: 25%;
+  max-width: 160px;
+}
+
+/* メニューボタン */
+.menu_button {
+  position: absolute;
+  top: 4%;
+  right: 4%;
+  z-index: 6;
+  display: flex;
+  width: clamp(48px, 14vw, 82px);
+  height: clamp(48px, 14vw, 82px);
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 6px;
+  padding: 0;
+  background-color: rgba(255, 255, 255, 0.88);
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.14);
+  cursor: pointer;
+}
+
+.menu_button span {
+  display: block;
+  width: 42%;
+  height: 2px;
+  background-color: #1594e7;
+  border-radius: 10px;
+}
+
+/* タイトル全体 */
+.first_title {
+  position: absolute;
+  top: 41%;
+  left: 7%;
+  z-index: 4;
+  width: 86%;
+  color: #ffffff;
+}
+
+/* 「大切な家族の」 */
+.first_title_small {
+  display: table;
+  margin: 0;
+  padding: 3px 14px 0;
+  color: #1686eb;
+  background-color: #ffffff;
+  font-size: clamp(17px, 5vw, 45px);
+  font-weight: 700;
+  line-height: 1.45;
+  letter-spacing: 0.05em;
+}
+
+/* 「健康のために。」 */
+.first_title_large {
+  display: table;
+  margin: 0;
+  padding: 0 20px 5px;
+  color: #1686eb;
+  background-color: #ffffff;
+  font-size: clamp(34px, 10vw, 75px);
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 0.07em;
+}
+
+/* 説明文 */
+.first_title_text {
+  margin: 50px 0 0 50px;
+  color: #ffffff;
+  font-size: clamp(23px, 6vw, 40px);
+  font-weight: 900;
+  line-height: 1.55;
+  letter-spacing: 0.03em;
+}
+
+/* 黄色い星 */
+.first_star {
+  position: absolute;
+  top: 75%;
+  left: 55%;
+  z-index: 5;
+  color: #fff600;
+  font-size: clamp(10px, 10vw, 30px);
+  line-height: 1;
+}
+
+/* 猫 */
+.top_cat {
+  position: absolute;
+  right: 1%;
+  bottom: -23%;
+  z-index: 4;
+  width: 100%;
+  max-width: 900px;
+}
+
+/* 小さいスマートフォン */
+@media (max-width: 430px) {
+  .first {
+    height: 152vw;
+    min-height: 570px;
+  }
+
+  .first_title {
+    top: 41%;
+  }
+
+  .first_title_text {
+    margin-top: 25px;
+  }
+
+  .top_cat {
+    right: 8%;
+    width: 70%;
+  }
+}
+
+/* パソコン表示 */
+@media (min-width: 751px) {
+  .first {
+    height: 980px;
+  }
+
+  .first_title_text {
+    margin-top: 45px;
+  }
+}
+
+/* Intro */
+.about {
+  padding: 70px 10% 80px;
+  text-align: center;
+}
+
+.about h2,
+.about_02 h2,
+.about_03 h2 {
+  margin-bottom: 30px;
+  color: #0F83FF;
+  font-size: clamp(24px, 6.4vw, 44px);
+  font-weight: 900;
+  line-height: 1.45;
+}
+.about p,
+.about_03 > p {
+  max-width: 580px;
+  margin-inline: auto;
+  text-align: left;
+  font-size: clamp(13px, 3.4vw, 20px);
+  line-height: 2;
+}
+
+/* Chart */
+.about_02 {
+  padding: 72px 8% 65px;
+  text-align: center;
+}
+.about_02 .lead {
+  margin-bottom: 25px;
+  font-size: clamp(15px, 4vw, 25px);
+  font-weight: 800;
+  line-height: 1.6;
+}
+.about_02 img {
+  width: 82%;
+  max-width: 510px;
+  margin: 0 auto 20px;
+}
+.about_02 small {
+  display: block;
+  font-size: 8px;
+  line-height: 1.4;
+}
+
+/* Periodontal disease */
+.about_03 {
+  padding: 65px 8% 0;
+  text-align: center;
+}
+.about_03 img {
+  width: calc(100% + 16%);
+  max-width: none;
+  margin: 0 -8% 30px;
+}
+.about_03 > p { margin-bottom: 35px; }
+.about_03 h3 {
+  margin: 0 -1% 45px;
+  color: #1686eb;
+  font-size: clamp(30px, 5vw, 40px);
+  font-weight: 900;
+  line-height: 1.45;
+}
+
+/* Choice */
+.choice {
+  padding: 10px 6% 55px;
+  text-align: center;
+  background: var(--blue);
+}
+.choice > img:first-child {
+  width: 65%;
+  margin: 0 0 -10px 2%;
+}
+.choice > img:nth-child(2) {
+  width: 95%;
+  margin: -80px auto 5%;
+}
+
+/* うちの子はどっち？ */
+.choice > h3 {
+  margin: 0 0 3px;
+  color: #ffffff;
+  font-size: clamp(30px, 6.4vw, 50px);
+  font-weight: 900;
+  line-height: 1.3;
+  letter-spacing: 0.03em;
+}
+
+/* 見出し下の文章 */
+.choice > p {
+  margin: 0 auto 20px;
+  color: #ffffff;
+  font-size: clamp(17px, 2.8vw, 24px);
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+/* 白いカード */
+.choice-card {
+  width: 100%;
+  max-width: 620px;
+  margin: 0 auto 25px;
+  padding: 30px 18px 25px;
+  color: #222222;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: none;
+}
+
+/* カード最後の余白 */
+.choice-card:last-child {
+  margin-bottom: 0;
+}
+
+/* 小さい説明 */
+.choice-card > p:first-child {
+  margin: 0 0 2px;
+  font-size: clamp(16px, 3vw, 21px);
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+/* カードタイトル */
+.choice-card h4 {
+  margin: 0 0 16px;
+  font-size: clamp(30px, 8vw, 50px);
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+/* 緑カード */
+.choice-card.green > p:first-child,
+.choice-card.green h4 {
+  color: #13b70c;
+}
+
+/* 青カード */
+.choice-card.blue > p:first-child,
+.choice-card.blue h4 {
+  color: #152fff;
+}
+
+/* 商品説明 */
+.choice-card > p:nth-of-type(2) {
+  margin: 0 auto 20px;
+  color: #222222;
+  font-size: clamp(11px, 3vw, 17px);
+  font-weight: 500;
+  line-height: 1.65;
+}
+
+/* ボタン */
+.choice-card a {
+  position: relative;
+  display: flex;
+  width: 88%;
+  max-width: 480px;
+  min-height: 44px;
+  margin: 0 auto;
+  padding: 11px 38px 11px 20px;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  border-radius: 999px;
+  font-size: clamp(11px, 3vw, 17px);
+  font-weight: 700;
+  line-height: 1.4;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.18);
+}
+
+/* 緑ボタン */
+.choice-card.green a {
+  background-color: #13b70c;
+}
+
+/* 青ボタン */
+.choice-card.blue a {
+  background-color: #152fff;
+}
+
+/* ボタン右側の矢印 */
+.choice-card a span {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  font-size: 22px;
+  line-height: 1;
+  transform: translateY(-54%);
+}
+
+/* スマートフォン */
+@media (max-width: 430px) {
+  .choice {
+    padding-right: 8px;
+    padding-left: 8px;
+  }
+
+  .choice-card {
+    padding: 25px 12px 22px;
+  }
+
+  .choice-card a {
+    width: 84%;
+    min-height: 38px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+  }
+}
+
+/* Products */
+.solution,
+.solution_02 {
+  padding: 75px 8% 55px;
+  text-align: center;
+  background: #fff;
+}
+.eyebrow {
+  margin-bottom: 3px;
+  font-size: clamp(13px, 3.3vw, 20px);
+  font-weight: 800;
+}
+.solution > h3,
+.solution_02 > h3 {
+  margin-bottom: 24px;
+  color: #1686eb;
+  font-size: clamp(31px, 8vw, 54px);
+  font-weight: 900;
+  line-height: 1.35;
+}
+
+.description {
+  max-width: 590px;
+  margin: 0 auto 32px;
+  text-align: left;
+  font-size: clamp(12px, 3.2vw, 19px);
+  line-height: 1.9;
+}
+
+.product-visual {
+  position: relative;
+  max-width: 570px;
+  margin: 0 auto 25px;
+}
+
+.product-visual > img:first-child {
+  width: 68%;
+  max-height: 500px;
+  margin: auto;
+  object-fit: contain;
+}
+
+.product-visual > img:nth-child(2) {
+  width: 88%;
+  margin: 15px auto;
+}
+
+.product-visual > p {
+  margin-top: 14px;
+  text-align: left;
+  font-size: 8px;
+  line-height: 1.45;
+}
+
+.badge {
+  position: absolute;
+  display: grid;
+  width: 84px;
+  aspect-ratio: 1;
+  place-items: center;
+  color: #188c00;
+  background: #e8ff13;
+  border-radius: 50%;
+  font-size: 13px;
+  font-weight: 900;
+  line-height: 1.25;
+}
+
+.badge-one { top: 8%; right: 3%; }
+.badge-two { top: 38%; right: 3%; }
+.product-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  max-width: 590px;
+  margin: 0 auto 10px;
+  text-align: left;
+}
+.product-head div p:first-child {
+  color: #0089c9;
+  font-family: "DM Sans", sans-serif;
+  font-size: clamp(21px, 5.2vw, 35px);
+  font-weight: 900;
+  line-height: 1.1;
+}
+.product-head div p:last-child {
+  color: #118bc5;
+  font-size: clamp(12px, 3vw, 18px);
+  font-weight: 800;
+}
+.product-head > span { font-size: 12px; }
+.category {
+  max-width: 590px;
+  margin: 0 auto 2px;
+  text-align: left;
+  font-size: 12px;
+}
+.category span {
+  display: inline-block;
+  margin-right: 6px;
+  padding: 0 8px;
+  color: #fff;
+  background: #078bd3;
+  border-radius: 3px;
+  font-size: 10px;
+  font-weight: 700;
+}
+.price {
+  max-width: 590px;
+  margin: 0 auto 16px;
+  color: var(--red);
+  font-family: "Roboto Flex", sans-serif;
+  font-size: clamp(36px, 9.5vw, 64px);
+  font-weight: 900;
+  text-align: right;
+  line-height: 1.2;
+}
+.price small {
+  margin: 0 2px;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+/* ==============================
+   飲んでケアする
+============================== */
+
+.solution {
+  padding: 45px 20px 35px;
+  color: #137975;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+/* 上部の小見出し */
+.solution .eyebrow {
+  margin: 0 0 2px;
+  color: #137975;
+  font-size: clamp(20px, 3.2vw, 20px);
+  font-weight: 800;
+  line-height: 1.5;
+}
+
+/* 飲んでケアする */
+.solution > h3 {
+  margin: 0 0 18px;
+  color: #137975;
+  font-size: clamp(35px, 7.8vw, 50px);
+  font-weight: 900;
+  line-height: 1.3;
+  letter-spacing: 0.04em;
+}
+
+/* 商品説明 */
+.solution .description {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto 20px;
+  color: #222222;
+  font-size: clamp(11px, 3vw, 16px);
+  font-weight: 500;
+  line-height: 1.9;
+  text-align: left;
+}
+
+/* 商品画像部分 */
+.solution .product-visual {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  min-height: 260px;
+  margin: 0 auto 15px;
+}
+
+/* ボトル */
+.solution .product-visual > img {
+  width: auto;
+  height: 350px;
+  margin: 0 auto;
+  object-fit: contain;
+  transform: translateX(-35px);
+}
+
+/* 黄色い丸 */
+.solution .badge {
+  position: absolute;
+  right: 12%;
+  display: flex;
+  width: 120px;
+  height: 120px;
+  align-items: center;
+  justify-content: center;
+  color: #008a00;
+  background-color: #f2ff00;
+  border-radius: 50%;
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 1.35;
+  text-align: center;
+}
+
+.solution .badge-one {
+  top: 50px;
+}
+
+.solution .badge-two {
+  top: 200px;
+}
+
+/* 商品名・容量 */
+.solution .product-head {
+  display: flex;
+  width: 100%;
+  max-width: 590px;
+  margin: 0 auto 3px;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 10px;
+  text-align: left;
+}
+
+.solution .product-head > div {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+}
+
+.solution .product-head div p:first-child {
+  color: #007577;
+  font-family: "DM Sans", sans-serif;
+  font-size: clamp(30px, 5.5vw, 40px);
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.solution .product-head div p:last-child {
+  color: #007577;
+  font-size: 20px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.solution .product-head > span {
+  order: -1;
+  color: #007577;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+/*
+容量は次の行に表示するため、
+HTMLの構造上はcategory側と揃える
+*/
+.solution .product-head > span {
+  display: none;
+}
+
+/* 液状・説明 */
+.solution .category {
+  display: flex;
+  width: 100%;
+  max-width: 590px;
+  margin: 2px auto 7px;
+  align-items: center;
+  color: #007577;
+  font-size: 17px;
+  font-weight: 700;
+  text-align: left;
+}
+
+.solution .category::before {
+  margin-right: 6px;
+  content: "150ml";
+  font-weight: 800;
+}
+
+.solution .category span {
+  display: inline-block;
+  margin-right: 6px;
+  padding: 1px 8px;
+  color: #ffffff;
+  background-color: #007577;
+  border-radius: 50px;
+  font-size: 19px;
+  line-height: 1.6;
+}
+
+/* 価格 */
+.solution .price {
+  width: 100%;
+  max-width: 590px;
+  margin: 0 auto 15px;
+  color: #e60012;
+  font-family: "Roboto Flex", sans-serif;
+  font-size: clamp(35px, 9vw, 55px);
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: right;
+}
+
+.solution .price::before {
+  display: inline-flex;
+  width: 45px;
+  height: 45px;
+  margin-right: 5px;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  background-color: #e60012;
+  border-radius: 50%;
+  content: "希望\A価格";
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.1;
+  text-align: center;
+  white-space: pre;
+  vertical-align: middle;
+}
+
+.solution .price small {
+  margin: 0 2px;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* 詳しい使い方を見る */
+.solution .price + p {
+  position: relative;
+  width: 100%;
+  max-width: 590px;
+  margin: 0 auto;
+  padding: 9px 35px;
+  color: #222222;
+  border-top: 1px solid #278c8e;
+  border-bottom: 1px solid #278c8e;
+  font-size: 15px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.solution .price + p::after {
+  position: absolute;
+  top: 50%;
+  right: 26%;
+  content: "→";
+  color: #222222;
+  transform: translateY(-50%);
+}
+
+/* 使い方全体 */
+.solution .detail_01 {
+  width: 100%;
+  max-width: 590px;
+  margin: 14px auto 0;
+}
+
+/* 使い方1・2 */
+.solution .detailed01,
+.solution .detailed02 {
+  display: grid;
+  grid-template-columns: 75px 1fr;
+  align-items: center;
+  min-height: 105px;
+  padding: 15px 0;
+  column-gap: 15px;
+  border-bottom: 1px solid #278c8e;
+  text-align: left;
+}
+
+/* アイコン */
+.solution .detailed01 img,
+.solution .detailed02 img {
+  grid-row: 1 / span 2;
+  width: 68px;
+  margin: auto;
+}
+
+/* 説明文 */
+.solution .detailed01 p,
+.solution .detailed02 p {
+  margin: 0;
+  color: #007577;
+  font-size: clamp(10px, 2.7vw, 15px);
+  font-weight: 800;
+  line-height: 1.55;
+}
+
+/* 補足説明 */
+.solution .detailed01 p:nth-of-type(2) {
+  margin-top: 6px;
+  color: #777777;
+  font-size: clamp(9px, 2.4vw, 13px);
+  font-weight: 400;
+}
+
+/* スマートフォン */
+@media (max-width: 430px) {
+  .solution {
+    padding-right: 19px;
+    padding-left: 19px;
+  }
+
+  .solution .product-visual {
+    min-height: 235px;
+  }
+
+  .solution .product-visual > img {
+    height: 230px;
+  }
+
+  .solution .badge {
+    right: 8%;
+    width: 66px;
+    height: 66px;
+    font-size: 11px;
+  }
+
+  .solution .badge-one {
+    top: 28px;
+  }
+
+  .solution .badge-two {
+    top: 112px;
+  }
+
+  .solution .detailed01,
+  .solution .detailed02 {
+    grid-template-columns: 68px 1fr;
+    column-gap: 12px;
+  }
+
+  .solution .detailed01 img,
+  .solution .detailed02 img {
+    width: 62px;
+  }
+}
+
+/* ==============================
+   歯磨きでケアする
+============================== */
+
+.solution_02 {
+  padding: 45px 20px 35px;
+  color: #0046c7;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+/* 小見出し */
+.solution_02 .eyebrow {
+  margin: 0 0 2px;
+  color: #0046c7;
+  font-size: clamp(20px, 3.2vw, 20px);
+  font-weight: 800;
+  line-height: 1.5;
+}
+
+/* 歯磨きでケアする */
+.solution_02 > h3 {
+  margin: 0 0 18px;
+  color: #0046c7;
+  font-size: clamp(35px, 7.8vw, 50px);
+  font-weight: 900;
+  line-height: 1.3;
+  letter-spacing: 0.04em;
+}
+
+/* 商品説明 */
+.solution_02 .description {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto 20px;
+  color: #222222;
+  font-size: clamp(11px, 3vw, 16px);
+  font-weight: 500;
+  line-height: 1.9;
+  text-align: left;
+}
+
+/* 商品画像部分 */
+.solution_02 .product-visual {
+  position: relative;
+  width: 100%;
+  max-width: 450px;
+  min-height: 330px;
+  margin: 0 auto 18px;
+}
+
+/* クリスタルジョイ */
+.solution_02 .product-visual > img:first-child {
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  width: auto;
+  height: 350px;
+  object-fit: contain;
+}
+
+/* 73％などの訴求画像 */
+.solution_02 .product-visual > img:nth-child(2) {
+  position: absolute;
+  top: 0px;
+  right: 2%;
+  width: 80%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* 注釈 */
+.solution_02 .product-visual > p {
+  position: absolute;
+  right: 0;
+  bottom: 0px;
+  width: 54%;
+  margin: 0;
+  color: #555555;
+  font-size: 8px;
+  font-weight: 400;
+  line-height: 1.4;
+  text-align: left;
+}
+
+/* 商品名 */
+.solution_02 .product-head {
+  display: flex;
+  width: 100%;
+  max-width: 590px;
+  margin: 0 auto 3px;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: 8px;
+  text-align: left;
+}
+
+.solution_02 .product-head > div {
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+}
+
+.solution_02 .product-head div p:first-child {
+  color: #0046c7;
+  font-family: "DM Sans", sans-serif;
+  font-size: clamp(30px, 5.5vw, 40px);
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.solution_02 .product-head div p:last-child {
+  color: #0046c7;
+  font-size: 20px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+/* HTML内の60gは下の行へ移す */
+.solution_02 .product-head > span {
+  display: none;
+}
+
+/* 容量・ジェル・用途 */
+.solution_02 .category {
+  display: flex;
+  width: 100%;
+  max-width: 590px;
+  margin: 2px auto 7px;
+  align-items: center;
+  color: #0046c7;
+  font-size: 17px;
+  font-weight: 700;
+  text-align: left;
+}
+
+.solution_02 .category::before {
+  margin-right: 6px;
+  content: "60g";
+  font-weight: 800;
+}
+
+.solution_02 .category span {
+  display: inline-block;
+  margin-right: 6px;
+  padding: 1px 8px;
+  color: #ffffff;
+  background-color: #0046c7;
+  border-radius: 50px;
+  font-size: 19px;
+  line-height: 1.6;
+}
+
+/* 価格 */
+.solution_02 .price {
+  width: 100%;
+  max-width: 590px;
+  margin: 0 auto 15px;
+  color: #e60012;
+  font-family: "Roboto Flex", sans-serif;
+  font-size: clamp(35px, 9vw, 55px);
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: right;
+}
+
+.solution_02 .price::before {
+  display: inline-flex;
+  width: 45px;
+  height: 45px;
+  margin-right: 5px;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  background-color: #e60012;
+  border-radius: 50%;
+  content: "希望\A価格";
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.1;
+  text-align: center;
+  white-space: pre;
+  vertical-align: middle;
+}
+
+.solution_02 .price small {
+  margin: 0 2px;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* 詳しい使い方を見る */
+.solution_02 .price + p {
+  position: relative;
+  width: 100%;
+  max-width: 590px;
+  margin: 0 auto;
+  padding: 9px 35px;
+  color: #222222;
+  border-top: 1px solid #4779ce;
+  border-bottom: 1px solid #4779ce;
+  font-size: 11px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.solution_02 .price + p::after {
+  position: absolute;
+  top: 50%;
+  right: 26%;
+  content: "→";
+  transform: translateY(-50%);
+}
+
+/* 使い方 */
+.solution_02 .detail_03 {
+  width: 100%;
+  max-width: 590px;
+  margin: 14px auto 0;
+}
+
+.solution_02 .detailed03,
+.solution_02 .detailed04 {
+  display: grid;
+  grid-template-columns: 75px 1fr;
+  align-items: center;
+  min-height: 105px;
+  padding: 15px 0;
+  column-gap: 15px;
+  border-bottom: 1px solid #4779ce;
+  text-align: left;
+}
+
+.solution_02 .detailed03 img,
+.solution_02 .detailed04 img {
+  width: 68px;
+  margin: auto;
+}
+
+.solution_02 .detailed03 p,
+.solution_02 .detailed04 p {
+  margin: 0;
+  color: #3494D1;
+  font-size: clamp(10px, 2.7vw, 15px);
+  font-weight: 800;
+  line-height: 1.6;
+}
+
+/* スマートフォン */
+@media (max-width: 430px) {
+  .solution_02 {
+    padding-right: 19px;
+    padding-left: 19px;
+  }
+
+  .solution_02 .product-visual {
+    min-height: 285px;
+  }
+
+  .solution_02 .product-visual > img:first-child {
+    left: 10%;
+    height: 260px;
+  }
+
+  .solution_02 .product-visual > img:nth-child(2) {
+    top: 15px;
+    right: 0;
+    width: 54%;
+  }
+
+  .solution_02 .product-visual > p {
+    width: 55%;
+    font-size: 6px;
+  }
+
+  .solution_02 .detailed03,
+  .solution_02 .detailed04 {
+    grid-template-columns: 68px 1fr;
+    column-gap: 12px;
+  }
+
+  .solution_02 .detailed03 img,
+  .solution_02 .detailed04 img {
+    width: 62px;
+  }
+}
+
+/* ==============================
+   チカペカ ペット用歯ブラシ
+============================== */
+
+.solution_03 {
+  width: 100%;
+  padding: 20px 0 35px;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+/* 商品1・商品2共通 */
+.solution_03 .chicapetca_box,
+.solution_03 .chicapetca_box02 {
+  position: relative;
+  display: grid;
+  grid-template-columns: 38% 62%;
+  width: 100%;
+  min-height: 300px;
+  margin: 0;
+  padding: 28px 18px 18px 0;
+  align-items: center;
+  column-gap: 5px;
+  background-color: #ffffff;
+}
+
+/* 商品間の余白 */
+.solution_03 .chicapetca_box02 {
+  margin-top: 10px;
+}
+
+/* 歯ブラシ画像の領域 */
+.solution_03 .chicapetca_img {
+  position: relative;
+  width: 220%;
+  height: 300px;
+}
+
+/* 歯ブラシ画像 */
+.solution_03 .chicapetca_img img {
+  position: absolute;
+  top: 0;
+  left: -14%;
+  width: 230%;
+  height: 500px;
+  object-fit: contain;
+  object-position: center top;
+}
+
+/* 商品情報 */
+.solution_03 .chicapetca_text {
+  position: relative;
+  z-index: 2;
+  align-self: center;
+  color: #202020;
+  text-align: left;
+}
+
+/* 上部説明 */
+.solution_03 .brush-lead {
+  margin: 0 0 10px;
+  color: #222222;
+  font-size: clamp(10px, 2.7vw, 14px);
+  font-weight: 500;
+  line-height: 1.55;
+}
+
+/* CHICAPETCA */
+.solution_03 .chicapetca_text h4 {
+  margin: 0;
+  color: #1248bd;
+  font-family: "DM Sans", sans-serif;
+  font-size: clamp(21px, 5.6vw, 34px);
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: 0.03em;
+}
+
+/* 日本語商品名 */
+.solution_03 .chicapetca_text .jp {
+  margin: 2px 0 12px;
+  color: #1248bd;
+  font-size: clamp(10px, 2.7vw, 15px);
+  font-weight: 800;
+  line-height: 1.5;
+}
+
+/* 仕様全体 */
+.solution_03 .brush-spec {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  width: 100%;
+  margin: 0 0 7px;
+  align-items: center;
+  justify-content: start;
+  gap: 4px;
+}
+
+/* ラベル共通 */
+.solution_03 .brush-spec b,
+.solution_03 .brush-spec strong,
+.solution_03 .brush-spec span {
+  display: inline-block;
+  padding: 4px 15px;
+  color: #ffffff;
+  border-radius: 10px;
+  font-size: clamp(12px, 2.2vw, 15px);
+  line-height: 1.55;
+  white-space: nowrap;
+}
+
+/* コンパクト */
+.solution_03 .brush-spec.purple b {
+  background-color: #a943b2;
+}
+
+.solution_03 .brush-spec.purple strong {
+  color: #a943b2;
+  background-color: transparent;
+  font-size: clamp(16px, 3.5vw, 25px);
+  font-weight: 900;
+}
+
+.solution_03 .brush-spec.purple span {
+  padding-right: 0;
+  padding-left: 0;
+  color: #a943b2;
+  background-color: transparent;
+  font-weight: 900;
+}
+
+/* ワイド */
+.solution_03 .brush-spec.sky b {
+  background-color: #42add5;
+}
+
+.solution_03 .brush-spec.sky strong {
+  color: #36a6d2;
+  background-color: transparent;
+  font-size: clamp(16px, 3.5vw, 25px);
+  font-weight: 900;
+}
+
+.solution_03 .brush-spec.sky span {
+  padding-right: 0;
+  padding-left: 0;
+  color: #36a6d2;
+  background-color: transparent;
+  font-weight: 900;
+}
+
+/* サイズ・カラー */
+.solution_03 .brush-spec p {
+  grid-column: 1 / -1;
+  margin: 3px 0 0;
+  color: #555555;
+  font-size: clamp(12px, 2.2vw, 15px);
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+/* 価格 */
+.solution_03 .price {
+  display: flex;
+  margin: 4px 0 0;
+  align-items: center;
+  justify-content: flex-start;
+  color: #e60012;
+  font-family: "Roboto Flex", sans-serif;
+  font-size: clamp(31px, 8vw, 50px);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+/* 特別価格の丸 */
+.solution_03 .price::before {
+  display: inline-flex;
+  width: 45px;
+  height: 45px;
+  margin-right: 4px;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  background-color: #e60012;
+  border-radius: 50%;
+  content: "特別\A価格";
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.05;
+  text-align: center;
+  white-space: pre;
+}
+
+.solution_03 .price small {
+  margin: 0 3px;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+
+/* ==============================
+   注文フォームへの導線
+============================== */
+
+.order {
+  width: 100%;
+  padding: 35px 20px 65px;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+/* 説明文章 */
+.order > p {
+  margin: 0 auto 20px;
+  color: #222222;
+  font-size: clamp(11px, 3vw, 17px);
+  font-weight: 500;
+  line-height: 1.9;
+}
+
+/* 下向きの三角 */
+.order_arrow {
+  display: block;
+  width: 0;
+  height: 0;
+  margin: 0 auto 22px;
+  border-top: 17px solid #f26a21;
+  border-right: 14px solid transparent;
+  border-left: 14px solid transparent;
+}
+
+/* 注文ボタン */
+.order_button {
+  position: relative;
+  display: flex;
+  width: 100%;
+  max-width: 560px;
+  min-height: 58px;
+  margin: 0 auto;
+  padding: 15px 52px 15px 30px;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  background-color: #ff4b0b;
+  border-radius: 999px;
+  font-size: clamp(16px, 4.3vw, 25px);
+  font-weight: 900;
+  line-height: 1.4;
+  box-shadow: 0 5px 0 #d63800;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    opacity 0.2s ease;
+}
+
+/* ボタン右側の矢印 */
+.order_button span {
+  position: absolute;
+  top: 50%;
+  right: 22px;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1;
+  transform: translateY(-54%);
+}
+
+/* マウスを乗せたとき */
+.order_button:hover {
+  box-shadow: 0 2px 0 #d63800;
+  opacity: 0.9;
+  transform: translateY(3px);
+}
+
+/* ボタンを押しているとき */
+.order_button:active {
+  box-shadow: none;
+  transform: translateY(5px);
+}
+
+@media (max-width: 430px) {
+  .order {
+    padding: 30px 18px 55px;
+  }
+
+  .order_button {
+    min-height: 52px;
+    padding: 13px 45px 13px 24px;
+  }
+
+  .order_button span {
+    right: 18px;
+    font-size: 25px;
+  }
+}
+
+
+/* スマートフォン */
+@media (max-width: 430px) {
+  .solution_03 .chicapetca_box,
+  .solution_03 .chicapetca_box02 {
+    grid-template-columns: 35% 65%;
+    min-height: 270px;
+    padding-right: 12px;
+  }
+
+  .solution_03 .chicapetca_img {
+    height: 270px;
+  }
+
+  .solution_03 .chicapetca_img img {
+    left: -20%;
+    width: 125%;
+    height: 300px;
+  }
+
+  .solution_03 .price::before {
+    width: 34px;
+    height: 34px;
+    font-size: 7px;
+  }
+}
+
+/* ==============================
+   フッター
+============================== */
+
+#footer {
+  width: 100%;
+  padding: 40px 20px 20px;
+  color: #ffffff;
+  background-color: #2588f4;
+  text-align: center;
+}
+
+/* ゆるウェルロゴ */
+#footer > img:first-of-type {
+  display: block;
+  width: 235px;
+  max-width: 70%;
+  height: auto;
+  margin: 0 auto 3px;
+  object-fit: contain;
+}
+
+/* 北海道歯科産業ロゴ */
+#footer > img:nth-of-type(2) {
+  display: block;
+  width: 105px;
+  max-width: 32%;
+  height: auto;
+  margin: 0 auto 25px;
+  object-fit: contain;
+}
+
+/* 元画像が白色ロゴではない場合だけ使用 */
+#footer > img {
+  filter: brightness(0) invert(1);
+}
+
+/* TOPに戻る */
+.footer_top {
+  margin: 0 auto 18px;
+}
+
+.footer_top a {
+  display: inline-flex;
+  padding: 7px 22px;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+/* コピーライト */
+.copyright {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 8px;
+  letter-spacing: 0.04em;
+}
+
+@media (min-width: 751px) {
+  body { padding-block: 30px; }
+  main, #footer { box-shadow: 0 0 32px rgb(0 0 0 / 10%); }
+}
+
+@media (max-width: 480px) {
+  .first { min-height: 640px; }
+  .first > img:first-child { height: 640px; }
+  .first_title { top: 215px; }
+  .badge { width: 64px; font-size: 10px; }
+  .chicapetca_box,
+  .chicapetca_box02 { grid-template-columns: 31% 69%; padding-inline: 5%; gap: 10px; }
+}
